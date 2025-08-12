@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Your Site — Built for Free</title>
+  <meta name="description" content="A simple, responsive, accessible single-file website you can edit and deploy for free.">
+  <link rel="icon" href="data:,"><!-- tiny blank favicon -->
+  <style>
+    :root{--bg:#0f1724;--card:#0b1220;--muted:#94a3b8;--accent:#06b6d4;--glass: rgba(255,255,255,0.03)}
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;font-family:Inter,ui-sans-serif,system-ui,Segoe UI,Roboto,"Helvetica Neue",Arial;color:#e6eef6;background:linear-gradient(180deg,#071028 0%, #071224 60%)}
+    .container{max-width:1100px;margin:0 auto;padding:28px}
+    header{display:flex;align-items:center;justify-content:space-between;gap:12px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{width:48px;height:48px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#7c3aed);display:flex;align-items:center;justify-content:center;font-weight:700;color:#021124}
+    nav{display:flex;gap:18px;align-items:center}
+    a{color:inherit;text-decoration:none}
+    .muted{color:var(--muted);font-size:0.95rem}
+    .hero{display:grid;grid-template-columns:1fr 360px;gap:28px;align-items:center;margin-top:36px}
+    .card{background:var(--card);padding:22px;border-radius:14px;box-shadow:0 6px 24px rgba(2,6,23,0.6);backdrop-filter: blur(6px)}
+    h1{margin:0;font-size:2.2rem;line-height:1.02}
+    p.lead{margin:12px 0 20px;color:var(--muted)}
+    .cta{display:inline-block;background:linear-gradient(90deg,var(--accent),#7c3aed);padding:10px 16px;border-radius:10px;color:#021124;font-weight:600}
+    .features{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:18px}
+    .feature{padding:12px;border-radius:10px;background:var(--glass);font-size:0.95rem}
+    .right-hero{display:flex;flex-direction:column;gap:14px}
+    .preview{height:220px;border-radius:10px;overflow:hidden;background:linear-gradient(180deg,#06202b,#021224);display:flex;align-items:center;justify-content:center;color:var(--muted);font-weight:600}
+    footer{margin-top:46px;padding:18px 0;border-top:1px solid rgba(255,255,255,0.03);display:flex;justify-content:space-between;align-items:center}
+    .grid-two{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:18px}
+    .links a{display:inline-block;margin-right:12px;color:var(--muted)}
+
+    /* responsive */
+    @media (max-width:900px){.hero{grid-template-columns:1fr;}.features{grid-template-columns:repeat(2,1fr)}.right-hero{order:-1}}
+    @media (max-width:520px){.features{grid-template-columns:1fr}.logo{width:40px;height:40px}}
+
+    /* small utilities */
+    .kbd{background:#07122a;padding:6px 8px;border-radius:8px;font-family:monospace;font-size:0.9rem;color:var(--muted)}
+  </style>
+</head>
+<body>
+  <div class="container" id="top">
+    <header>
+      <div class="brand">
+        <div class="logo" aria-hidden>YS</div>
+        <div>
+          <div style="font-weight:700">Your Site</div>
+          <div class="muted" style="font-size:0.85rem">Simple • Fast • Free</div>
+        </div>
+      </div>
+      <nav aria-label="Main navigation">
+        <a href="#features" class="muted">Features</a>
+        <a href="#how-to" class="muted">Deploy</a>
+        <a href="#contact" class="muted">Contact</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="hero-heading">
+        <div>
+          <h1 id="hero-heading">A modern single-file website you can edit and deploy — for free.</h1>
+          <p class="lead">No build steps, no frameworks required. Edit the HTML below, open it locally, or push to GitHub/Netlify/Vercel/Cloudflare Pages to put it on the web.</p>
+          <a class="cta" href="#how-to">Deploy for free</a>
+
+          <div id="features" class="card" style="margin-top:18px">
+            <div style="font-weight:700;margin-bottom:8px">What you get</div>
+            <div class="features">
+              <div class="feature"><strong>Responsive</strong><div class="muted">Looks good on phones and desktops</div></div>
+              <div class="feature"><strong>Accessible</strong><div class="muted">Semantic markup and keyboard-friendly</div></div>
+              <div class="feature"><strong>Single file</strong><div class="muted">HTML, CSS & JS in one file — easy to edit</div></div>
+            </div>
+          </div>
+
+          <section class="card grid-two" style="margin-top:18px">
+            <div>
+              <h3 style="margin:0 0 8px">Quick edit tips</h3>
+              <ul style="margin:0 0 12px;color:var(--muted)">
+                <li>Change the <code>&lt;title&gt;</code> and meta description for SEO.</li>
+                <li>Edit the hero text (inside <code>&lt;h1&gt;</code>).</li>
+                <li>Replace the logo square with your own <code>&lt;img&gt;</code>.</li>
+              </ul>
+              <div class="muted">Preview locally: open the file in any browser. Press <span class="kbd">Ctrl/Cmd + R</span> to refresh after edits.</div>
+            </div>
+            <div>
+              <h3 style="margin:0 0 8px">Files included</h3>
+              <div class="muted">This single <code>index.html</code> contains everything you need. If you grow, split CSS/JS into separate files and connect them.</div>
+            </div>
+          </section>
+        </div>
+
+        <aside class="right-hero">
+          <div class="card preview" aria-hidden>
+            Live preview
+          </div>
+          <div class="card">
+            <div style="font-weight:700;margin-bottom:8px">Status</div>
+            <div class="muted">Ready to edit — hosted anywhere that accepts static HTML.</div>
+          </div>
+        </aside>
+      </section>
+
+      <section id="how-to" class="card" style="margin-top:22px">
+        <h2 style="margin-top:0">How to deploy for free</h2>
+        <ol style="color:var(--muted)">
+          <li>Create a GitHub repository, add <code>index.html</code>, and enable GitHub Pages in repo settings.</li>
+          <li>Or drag-and-drop the file to Netlify's dashboard or connect your GitHub repo to Netlify/Vercel/Cloudflare Pages for automatic deploys.</li>
+          <li>Optionally add a custom domain and HTTPS (most providers offer free TLS).</li>
+        </ol>
+        <p class="muted">See provider docs for step-by-step guides (GitHub Pages, Netlify, Vercel, Cloudflare).</p>
+      </section>
+
+      <section id="contact" class="card" style="margin-top:18px">
+        <h2 style="margin-top:0">Contact</h2>
+        <p class="muted">This demo includes a non-functional contact form to show structure. To make it work, connect the form to a serverless function or form provider.</p>
+        <form onsubmit="alert('This is a demo. Hook the form up to a provider to enable submissions.');return false;">
+          <label for="name" class="muted">Name</label><br>
+          <input id="name" name="name" required style="width:100%;padding:10px;margin:6px 0;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit">
+          <label for="email" class="muted">Email</label><br>
+          <input id="email" name="email" type="email" required style="width:100%;padding:10px;margin:6px 0;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit">
+          <label for="message" class="muted">Message</label><br>
+          <textarea id="message" name="message" rows="4" style="width:100%;padding:10px;margin:6px 0;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit"></textarea>
+          <div style="margin-top:8px"><button class="cta">Send (demo)</button></div>
+        </form>
+      </section>
+
+    </main>
+
+    <footer>
+      <div class="muted">Built with ❤️ — edit and deploy for free.</div>
+      <div class="links">
+        <a href="#top" class="muted">Back to top</a>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // Small JS helpers (mobile nav, theme toggle) - intentionally minimal
+    (function(){
+      // keyboard focus indicator for accessibility
+      function handleFirstTab(e){ if(e.key === 'Tab'){ document.body.classList.add('show-focus'); window.removeEventListener('keydown', handleFirstTab); }}
+      window.addEventListener('keydown', handleFirstTab);
+    })();
+  </script>
+</body>
+</html>
