@@ -57,16 +57,28 @@ onScroll();
 // Browsers without support simply do a normal navigation; the CSS fallback
 // fade-in animation in styles.css covers those.
 
-
-/* Mobile menu fix */
+/* Responsive mobile menu toggle */
 document.addEventListener('DOMContentLoaded', function () {
   const menuToggle = document.getElementById('menuToggle');
   const mobileNav = document.getElementById('mnav');
 
-  if (menuToggle && mobileNav) {
-    menuToggle.addEventListener('click', function () {
-      const isOpen = mobileNav.classList.toggle('open');
-      menuToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-    });
+  if (!menuToggle || !mobileNav) return;
+
+  function setMenu(open) {
+    mobileNav.classList.toggle('open', open);
+    menuToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    menuToggle.textContent = open ? 'Close' : 'Menu';
   }
+
+  setMenu(false);
+
+  menuToggle.addEventListener('click', function () {
+    setMenu(!mobileNav.classList.contains('open'));
+  });
+
+  mobileNav.querySelectorAll('a').forEach(function (link) {
+    link.addEventListener('click', function () {
+      setMenu(false);
+    });
+  });
 });
