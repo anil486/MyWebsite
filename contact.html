@@ -27,7 +27,7 @@
       <a href="contact.html">Contact</a>
     </nav>
     <a href="contact.html" class="btn nav-cta">Request Consultation</a>
-    <button class="menu-toggle" onclick="document.getElementById('mnav').classList.toggle('open')">Menu</button>
+    <button class="menu-toggle" onclick="const m=document.getElementById('mnav'); const open=m.classList.toggle('open'); m.style.display=open?'block':'none';">Menu</button>
   </div>
   <div id="mnav" style="display:none;" class="wrap">
     <div style="display:flex;flex-direction:column;gap:0;border-top:1px solid var(--line);">
