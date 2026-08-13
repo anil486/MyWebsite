@@ -56,3 +56,17 @@ onScroll();
 // link navigation, back/forward, and accessibility fully intact.
 // Browsers without support simply do a normal navigation; the CSS fallback
 // fade-in animation in styles.css covers those.
+
+
+/* Mobile menu fix */
+document.addEventListener('DOMContentLoaded', function () {
+  const menuToggle = document.getElementById('menuToggle');
+  const mobileNav = document.getElementById('mnav');
+
+  if (menuToggle && mobileNav) {
+    menuToggle.addEventListener('click', function () {
+      const isOpen = mobileNav.classList.toggle('open');
+      menuToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+  }
+});
