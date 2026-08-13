@@ -27,9 +27,9 @@
       <a href="contact.html">Contact</a>
     </nav>
     <a href="contact.html" class="btn nav-cta">Request Consultation</a>
-    <button class="menu-toggle" id="menuToggle" type="button" aria-controls="mnav" aria-expanded="false">Menu</button>
+    <button class="menu-toggle" onclick="document.getElementById('mnav').classList.toggle('open')">Menu</button>
   </div>
-  <div id="mnav" class="wrap">
+  <div id="mnav" style="display:none;" class="wrap">
     <div style="display:flex;flex-direction:column;gap:0;border-top:1px solid var(--line);">
       <a href="index.html" style="padding:16px 0;border-bottom:1px solid var(--line);font-family:'IBM Plex Mono';font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;">Home</a>
       <a href="capabilities.html" style="padding:16px 0;border-bottom:1px solid var(--line);font-family:'IBM Plex Mono';font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;">Capabilities</a>
