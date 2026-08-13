@@ -57,7 +57,7 @@ onScroll();
 // Browsers without support simply do a normal navigation; the CSS fallback
 // fade-in animation in styles.css covers those.
 
-/* Responsive mobile menu toggle */
+/* Mobile navigation - clean fix */
 document.addEventListener('DOMContentLoaded', function () {
   const menuToggle = document.getElementById('menuToggle');
   const mobileNav = document.getElementById('mnav');
@@ -70,6 +70,7 @@ document.addEventListener('DOMContentLoaded', function () {
     menuToggle.textContent = open ? 'Close' : 'Menu';
   }
 
+  // Always start closed.
   setMenu(false);
 
   menuToggle.addEventListener('click', function () {

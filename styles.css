@@ -531,18 +531,16 @@
   body{ animation: pageEnterFallback .5s cubic-bezier(.16,1,.3,1) both; }
   @keyframes pageEnterFallback{ from{ opacity:0; transform:translateY(10px);} to{ opacity:1; transform:translateY(0);} }
 
-/* Responsive mobile navigation */
-@media (max-width: 768px) {
-  #mnav {
-    display: none;
-  }
-
-  #mnav.open {
-    display: block;
-  }
+/* Mobile navigation - clean fix */
+#mnav {
+  display: none !important;
 }
 
-@media (min-width: 769px) {
+#mnav.open {
+  display: block !important;
+}
+
+@media (min-width: 940px) {
   #mnav {
     display: none !important;
   }
