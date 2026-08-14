@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Request a Consultation — Artics Office Furnitures</title>
+<meta name="description" content="Start a project with Artics Office Furnitures. Request a consultation and our team will respond within one business day.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@500;600;700;800&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="progress-bar" id="progressBar"></div>
+
+<header>
+  <div class="nav-inner">
+    <a href="index.html" class="logo">
+      <div class="logo-mark">ART<span>I</span>CS</div>
+      <div class="logo-sub">Office Furnitures &nbsp;/&nbsp; Est. Interiors</div>
+    </a>
+    <nav class="links">
+      <a href="index.html">Home</a>
+      <a href="capabilities.html">Capabilities</a>
+      <a href="projects.html">Projects</a>
+      <a href="about.html">Standards</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <a href="contact.html" class="btn nav-cta">Request Consultation</a>
+    <button class="menu-toggle" onclick="document.getElementById('mnav').classList.toggle('open')">Menu</button>
+  </div>
+  <div id="mnav" class="wrap">
+    <div style="display:flex;flex-direction:column;gap:0;border-top:1px solid var(--line);">
+      <a href="index.html" style="padding:16px 0;border-bottom:1px solid var(--line);font-family:'IBM Plex Mono';font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;">Home</a>
+      <a href="capabilities.html" style="padding:16px 0;border-bottom:1px solid var(--line);font-family:'IBM Plex Mono';font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;">Capabilities</a>
+      <a href="projects.html" style="padding:16px 0;border-bottom:1px solid var(--line);font-family:'IBM Plex Mono';font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;">Projects</a>
+      <a href="about.html" style="padding:16px 0;border-bottom:1px solid var(--line);font-family:'IBM Plex Mono';font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;">Standards</a>
+      <a href="contact.html" style="padding:16px 0;font-family:'IBM Plex Mono';font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;">Contact</a>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+  <!-- REQUEST A CONSULTATION -->
+  <section id="contact" class="form-section">
+    <div class="wrap">
+      <div class="form-grid">
+        <div class="form-intro reveal">
+          <div class="eyebrow"><span class="dash"></span>Start A Project</div>
+          <h2 class="section-title">Request A<br>Consultation</h2>
+          <p>Tell us about the space, the timeline and the drawings you're working from. Our team will get back to you within one business day.</p>
+          <div class="form-contact-line">
+            <a href="tel:+917358389889">+91 73583 89889</a>
+            <a href="tel:+919884995664">+91 98849 95664</a>
+            <a href="mailto:articsofficefurn@gmail.com">articsofficefurn@gmail.com</a>
+          </div>
+        </div>
+
+        <form class="consult-form reveal" id="consultForm" action="/api/consult" method="POST">
+          <!-- Honeypot field to deter simple spam bots -->
+          <input type="text" name="_gotcha" class="form-honeypot" tabindex="-1" autocomplete="off">
+
+          <div class="field-row">
+            <div class="field">
+              <label for="cf-name">Full Name <span class="req">*</span></label>
+              <input type="text" id="cf-name" name="name" placeholder="Your full name" required>
+            </div>
+            <div class="field">
+              <label for="cf-company">Company / Organisation</label>
+              <input type="text" id="cf-company" name="company" placeholder="Company name">
+            </div>
+          </div>
+
+          <div class="field-row">
+            <div class="field">
+              <label for="cf-email">Email Address <span class="req">*</span></label>
+              <input type="email" id="cf-email" name="email" placeholder="you@company.com" required>
+            </div>
+            <div class="field">
+              <label for="cf-phone">Phone Number</label>
+              <input type="tel" id="cf-phone" name="phone" placeholder="+91 00000 00000">
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="cf-type">Project Type</label>
+            <select id="cf-type" name="project_type">
+              <option value="">Select an option</option>
+              <option value="Workstations & Cabinetry">Workstations &amp; Cabinetry</option>
+              <option value="Meeting Rooms & Pods">Meeting Rooms &amp; Pods</option>
+              <option value="Full Office Fit-Out">Full Office Fit-Out</option>
+              <option value="Auditorium / AV Space">Auditorium / AV Space</option>
+              <option value="Trade / Architect Partnership">Trade / Architect Partnership</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="cf-message">Your Questions / Project Details <span class="req">*</span></label>
+            <textarea id="cf-message" name="message" placeholder="Tell us about the space, scale, timeline, or any specific questions you have..." required></textarea>
+          </div>
+
+          <div class="form-submit-row">
+            <button type="submit" class="btn" id="cfSubmitBtn">Submit Request</button>
+            <span class="form-status" id="cfStatus"></span>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer id="footer">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-col">
+        <div class="logo-mark" style="margin-bottom:10px;">ART<span style="color:var(--brass-light);">I</span>CS</div>
+        <p style="max-width:32ch;">Architect-led office interiors, engineered and manufactured in-house for 35+ years.</p>
+      </div>
+      <div class="foot-col">
+        <h4>Contact</h4>
+        <a href="tel:+917358389889">+91 73583 89889</a>
+        <a href="tel:+919884995664">+91 98849 95664</a>
+        <a href="mailto:articsofficefurn@gmail.com">articsofficefurn@gmail.com</a>
+        <a href="https://www.articsofficefurnitures.com" target="_blank" rel="noopener">www.articsofficefurnitures.com</a>
+        <p>Survey No. 215, Bhavani Nagar, Upparapalayam,<br>Pothur, Thirumallaivoyal, Chennai&nbsp;–&nbsp;600062</p>
+      </div>
+      <div class="foot-col">
+        <h4>Navigate</h4>
+        <a href="index.html">Home</a>
+        <a href="capabilities.html">Capabilities</a>
+        <a href="projects.html">Projects</a>
+        <a href="about.html">Standards</a>
+      </div>
+      <div class="foot-col">
+        <h4>Enquiries</h4>
+        <a href="contact.html">Request a Consultation</a>
+        <a href="contact.html">Trade &amp; Architect Partnerships</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© <span id="year"></span> Artics Office Furnitures. All Rights Reserved.</span>
+      <span>Manufactured In-House &nbsp;/&nbsp; Installed On Site</span>
+    </div>
+  </div>
+</footer>
+
+<script src="main.js" defer></script>
+<script>
+  // consultation form submission (Cloudflare Pages Function -> Resend)
+  const consultForm = document.getElementById('consultForm');
+  const cfStatus = document.getElementById('cfStatus');
+  const cfSubmitBtn = document.getElementById('cfSubmitBtn');
+
+  if(consultForm){
+    consultForm.addEventListener('submit', async function(e){
+      e.preventDefault();
+
+      cfStatus.classList.remove('ok','err','show');
+      cfSubmitBtn.disabled = true;
+      cfSubmitBtn.textContent = 'Sending…';
+
+      try{
+        const formData = new FormData(consultForm);
+        const response = await fetch(consultForm.action, {
+          method: 'POST',
+          body: formData,
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if(response.ok){
+          consultForm.reset();
+          cfStatus.textContent = 'Thank you — your request has been sent. We\'ll be in touch shortly.';
+          cfStatus.classList.add('ok','show');
+          cfSubmitBtn.textContent = 'Submit Request';
+        } else {
+          throw new Error('Submission failed');
+        }
+      } catch(err){
+        cfStatus.textContent = 'Something went wrong. Please email us directly at articsofficefurn@gmail.com.';
+        cfStatus.classList.add('err','show');
+        cfSubmitBtn.textContent = 'Submit Request';
+      } finally {
+        cfSubmitBtn.disabled = false;
+      }
+    });
+  }
+</script>
+
+</body>
+</html>
