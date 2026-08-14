@@ -536,3 +536,11 @@
     body{ animation: pageEnterFallback 0.4s ease-out both; }
     @keyframes pageEnterFallback{ from{ opacity:0; } to{ opacity:1; } }
   }
+
+  /* Native page transitions replace the first-paint entrance animations. */
+  @supports (view-transition-name: none){
+    .hero-eyebrow, .hero h1, .hero-sub, .hero-actions, .hero-foot, .blueprint-grid{
+      animation:none;
+    }
+    .reveal.no-entry-transition{ transition:none; }
+  }

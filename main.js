@@ -13,8 +13,13 @@ const io = new IntersectionObserver((entries)=>{
     if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
   });
 },{ threshold:0.12 });
+const usesNativeViewTransitions = CSS.supports('view-transition-name', 'none');
 document.querySelectorAll('.reveal').forEach(el=>{
   el.classList.remove('in');
+  if(usesNativeViewTransitions && el.getBoundingClientRect().top < window.innerHeight){
+    el.classList.add('no-entry-transition', 'in');
+    return;
+  }
   io.observe(el);
 });
 
