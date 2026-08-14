@@ -511,19 +511,19 @@
     navigation: auto;
   }
 
-  @keyframes page-fade-in{
-    from{ opacity:0; }
-    to{ opacity:1; }
+  @keyframes page-glass-in{
+    from{ opacity:0; filter:blur(5px) brightness(1.08) saturate(0.9); }
+    to{ opacity:1; filter:blur(0) brightness(1) saturate(1); }
   }
-  @keyframes page-fade-out{
-    from{ opacity:1; }
-    to{ opacity:0; }
+  @keyframes page-glass-out{
+    from{ opacity:1; filter:blur(0) brightness(1) saturate(1); }
+    to{ opacity:0; filter:blur(3px) brightness(1.04) saturate(0.94); }
   }
   ::view-transition-old(root){
-    animation: 0.35s ease-out both page-fade-out;
+    animation: 0.45s cubic-bezier(.4,0,.2,1) both page-glass-out;
   }
   ::view-transition-new(root){
-    animation: 0.35s ease-in both page-fade-in;
+    animation: 0.45s cubic-bezier(.2,.8,.2,1) both page-glass-in;
   }
 
   /* current-page nav indicator */
@@ -532,6 +532,6 @@
 
   /* simple in-page loading fallback for browsers without View Transitions */
   @supports not (view-transition-name: none){
-    body{ animation: pageEnterFallback 0.35s ease-out both; }
+    body{ animation: pageEnterFallback 0.45s ease-out both; }
     @keyframes pageEnterFallback{ from{ opacity:0; } to{ opacity:1; } }
   }
