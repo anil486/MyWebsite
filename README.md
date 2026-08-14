@@ -7,10 +7,17 @@ that emails submissions via [Resend](https://resend.com).
 
 ```
 .
-├── index.html              # The site (single-page, self-contained)
+your-site/
+├── index.html
+├── capabilities.html
+├── projects.html
+├── about.html
+├── contact.html
+├── styles.css
+├── main.js
 └── functions/
     └── api/
-        └── consult.js       # Cloudflare Pages Function — POST /api/consult
+        └── consult.js
 ```
 
 The `functions/` directory uses Cloudflare Pages' file-based routing, so
